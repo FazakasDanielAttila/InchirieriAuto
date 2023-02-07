@@ -1,0 +1,30 @@
+{
+  "profiles": {
+    "InchirieriAuto": {
+      "commandName": "Project",
+      "commandLineArgs": "ConnectionStrings:DefaultConnection\": \"Data Source=localhost\\\\sqlexpress;Initial Catalog=InchirieriDB;Integrated Security=True;MultipleActiveResultSets=True\"",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ConnectionStrings__DefaultConnection": "Data Source=localhost\\sqlexpress;Initial Catalog=InchirieriDB;Integrated Security=True;MultipleActiveResultSets=True"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7122;http://localhost:5266"
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  },
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:27603",
+      "sslPort": 44332
+    }
+  }
+}

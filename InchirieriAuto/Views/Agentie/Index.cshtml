@@ -1,0 +1,76 @@
+﻿@model IEnumerable<InchirieriAuto.Models.AgentieModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-action="Create">Create New</a>
+    }
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeAgentie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Judet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oras)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumarTelefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeAgentie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Judet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Oras)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumarTelefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new {  id=item.IDAgentie  })
+                @if (User.IsInRole("Admin"))
+                {
+                  @Html.ActionLink("Edit", "Edit", new {  id=item.IDAgentie  })
+                }
+                 @if (User.IsInRole("Admin"))
+                 {
+                   @Html.ActionLink("Delete", "Delete", new { id = item.IDAgentie })
+                 }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

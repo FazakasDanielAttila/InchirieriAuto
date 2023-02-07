@@ -1,0 +1,72 @@
+﻿@model IEnumerable<InchirieriAuto.Models.AutovehiculeModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    @if (User.IsInRole("User"))
+    {
+        <a asp-action="Create">Create New</a>
+    }
+</p>
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumarLocuri)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Disponibilitate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PretZi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valuta)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumarLocuri)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disponibilitate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PretZi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valuta)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new {  id=item.IDAutovehicul }) |
+                    @if (User.IsInRole("User"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new {  id=item.IDAutovehicul })
+                    }
+                    |
+                    @if (User.IsInRole("User"))
+                    {
+                        @Html.ActionLink("Delete", "Delete", new { id = item.IDAutovehicul })
+                    }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

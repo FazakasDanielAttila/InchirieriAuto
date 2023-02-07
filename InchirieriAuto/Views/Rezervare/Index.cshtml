@@ -1,0 +1,68 @@
+﻿@model IEnumerable<InchirieriAuto.Models.RezervareModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    @if (User.IsInRole("User")) 
+    {
+        <a asp-action="Create">Create New</a>
+    }
+</p>
+<table class="table">
+    <thead>
+        <tr>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumarTelefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataPreluare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataReturnare)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumarTelefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataPreluare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataReturnare)
+            </td>
+            <td>
+                    @if (User.IsInRole("User, Admin")) 
+                    {
+                @Html.ActionLink("Edit", "Edit", new {  id=item.IDRezervare }) 
+                    }
+                    @if (User.IsInRole("User")) 
+                    {
+                @Html.ActionLink("Details", "Details", new {  id=item.IDRezervare }) 
+                    }
+                        @if (User.IsInRole("User, Admin")) 
+                    {
+                @Html.ActionLink("Delete", "Delete", new {  id=item.IDRezervare })
+                    }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,62 @@
+﻿@model InchirieriAuto.Models.DetaliiAutoModel
+
+@{
+    ViewData["Title"] = "DetailsDetaliiAuto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>DetailsDetaliiAuto</h1>
+
+<div>
+    <h4>DetaliiAutoModel</h4>
+    <hr />
+    <dl class="row">
+        
+        <dd class = "col-sm-10" hidden>
+            @Html.DisplayFor(model => model.IDDetaliiAuto)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Caroserie)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Caroserie)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumarInmatriculare)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumarInmatriculare)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AnFabricatie)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AnFabricatie)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Combutisbil)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Combutisbil)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CutieViteze)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CutieViteze)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CapacitateCilindrica)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CapacitateCilindrica)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (User.IsInRole("Admin"))
+    {
+     @Html.ActionLink("Edit", "Edit", new {  id = Model.IDDetaliiAuto })
+    }
+    <a asp-action="Index">Back to List</a>
+</div>

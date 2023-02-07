@@ -1,0 +1,64 @@
+﻿@model InchirieriAuto.Models.DetaliiAutoModel
+
+@{
+    ViewData["Title"] = "EditDetaliiAuto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>EditDetaliiAuto</h1>
+
+<h4>DetaliiAutoModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+              
+                <input asp-for="IDDetaliiAuto" class="form-control" hidden/>
+                
+            </div>
+            <div class="form-group">
+                <label asp-for="Caroserie" class="control-label"></label>
+                <input asp-for="Caroserie" class="form-control" />
+                <span asp-validation-for="Caroserie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumarInmatriculare" class="control-label"></label>
+                <input asp-for="NumarInmatriculare" class="form-control" />
+                <span asp-validation-for="NumarInmatriculare" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnFabricatie" class="control-label"></label>
+                <input asp-for="AnFabricatie" class="form-control" />
+                <span asp-validation-for="AnFabricatie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Combutisbil" class="control-label"></label>
+                <input asp-for="Combutisbil" class="form-control" />
+                <span asp-validation-for="Combutisbil" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CutieViteze" class="control-label"></label>
+                <input asp-for="CutieViteze" class="form-control" />
+                <span asp-validation-for="CutieViteze" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CapacitateCilindrica" class="control-label"></label>
+                <input asp-for="CapacitateCilindrica" class="form-control" />
+                <span asp-validation-for="CapacitateCilindrica" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

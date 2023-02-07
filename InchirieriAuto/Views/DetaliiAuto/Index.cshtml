@@ -1,0 +1,78 @@
+﻿@model IEnumerable<InchirieriAuto.Models.DetaliiAutoModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-action="Create">Create New</a>
+    }
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Caroserie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumarInmatriculare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnFabricatie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Combutisbil)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CutieViteze)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CapacitateCilindrica)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.Caroserie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumarInmatriculare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnFabricatie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Combutisbil)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CutieViteze)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CapacitateCilindrica)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new {  id=item.IDDetaliiAuto }) 
+                    @if (User.IsInRole("Admin"))
+                    {
+                     @Html.ActionLink("Edit", "Edit", new {  id=item.IDDetaliiAuto }) 
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                     @Html.ActionLink("Delete", "Delete", new {  id=item.IDDetaliiAuto })
+                       
+                    }
+                </td>
+            </tr>
+}
+    </tbody>
+</table>

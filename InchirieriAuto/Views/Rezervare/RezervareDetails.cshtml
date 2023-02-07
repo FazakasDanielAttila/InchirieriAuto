@@ -1,0 +1,50 @@
+﻿@model InchirieriAuto.Models.RezervareModel
+
+@{
+    ViewData["Title"] = "RezervareDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>RezervareDetails</h1>
+
+<div>
+    <h4>RezervareModel</h4>
+    <hr />
+    <dl class="row">
+       
+        <dd class = "col-sm-10" hidden>
+            @Html.DisplayFor(model => model.IDRezervare)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nume)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nume)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumarTelefon)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumarTelefon)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataPreluare)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataPreluare)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataReturnare)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataReturnare)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (User.IsInRole("Admin, User"))
+    {
+        @Html.ActionLink("Edit", "Edit", new {  id = Model.IDRezervare })
+    }
+    <a asp-action="Index">Back to List</a>
+</div>
